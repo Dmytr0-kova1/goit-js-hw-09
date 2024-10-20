@@ -20,7 +20,6 @@ if (savedFormData) {
   const parsedData = JSON.parse(savedFormData);
   document.querySelector("input").value = parsedData.email;
   document.querySelector("textarea").value = parsedData.message;
-  formData = parsedData;
 };
 
 form.addEventListener("submit", (event) => {
