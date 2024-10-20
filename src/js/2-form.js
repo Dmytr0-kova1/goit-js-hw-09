@@ -1,5 +1,8 @@
 
 const form = document.querySelector(".feedback-form");
+const input = form.querySelector("input")
+const textarea = form.querySelector("textarea")
+
 const formData = {
     email: "",
     message: ""
@@ -8,8 +11,8 @@ const formData = {
 
 
 function updateFormData({}) {
-  formData.email = document.querySelector("input").value;
-  formData.message = document.querySelector("textarea").value;
+  formData.email = input.value;
+  formData.message = textarea.value;
   localStorage.setItem("feedback-form-state", JSON.stringify(formData));
 };
 
@@ -18,8 +21,8 @@ form.addEventListener("input", updateFormData);
 const savedFormData = localStorage.getItem("feedback-form-state");
 if (savedFormData) {
   const parsedData = JSON.parse(savedFormData);
-  document.querySelector("input").value = parsedData.email;
-  document.querySelector("textarea").value = parsedData.message;
+  input.value = parsedData.email || "";
+  textarea.value = parsedData.message || "";
 };
 
 form.addEventListener("submit", (event) => {
