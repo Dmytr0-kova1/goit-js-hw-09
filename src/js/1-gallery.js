@@ -78,7 +78,6 @@ function createGalleryItem(image) {
     const a = document.createElement("a");
     a.classList.add("gallery-link");
     a.href = image.original;
-    a.addEventListener("click", (event) => {event.preventDefault()})
 
     const img = document.createElement("img");
     img.classList.add("gallery-image");
